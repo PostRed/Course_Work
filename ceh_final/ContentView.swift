@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Firebase
-
+ 
 struct ContentView: View {
 
     @State private var email = ""
@@ -32,7 +32,8 @@ struct ContentView: View {
     
     var main_page: some View {
         TabView {
-            HomeView()
+
+            HomeView(name: name, phone: phone, email: email)
                 .tabItem {
                     Label("МОЯ КАРТА", systemImage: "person.circle")
                 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>464092091772-un3dsa90mib8tg1cfb69igkjb6u455d3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.464092091772-un3dsa90mib8tg1cfb69igkjb6u455d3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyArEcu_A4TgbSE7Y1pVZt0cWBHwUDOtYyo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>464092091772</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Anastasiya.ceh-final</string>
+	<key>PROJECT_ID</key>
+	<string>cehapp-b7def</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cehapp-b7def.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:464092091772:ios:770633e62027dbfc2940f9</string>
+</dict>
+</plist>
