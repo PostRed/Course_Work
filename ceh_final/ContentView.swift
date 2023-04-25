@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
  
 struct ContentView: View {
+    
+    static let shared = ContentView()
 
     @State private var email = ""
     @State private var password = ""
@@ -16,8 +18,8 @@ struct ContentView: View {
     @State private var surname = ""
     @State private var patronymic = ""
     @State private var phone = ""
-    @State private var userIsLoggedIn = true //!!!!!
-    @State private var is_login = true
+    @State public var userIsLoggedIn = false //!!!!!
+    @State public var is_login = true
     @State private var showingAlert = false
     @State private var error_text = ""
     
@@ -33,7 +35,7 @@ struct ContentView: View {
     var main_page: some View {
         TabView {
 
-            HomeView(name: name, phone: phone, email: email)
+            HomeView()
                 .tabItem {
                     Label("МОЯ КАРТА", systemImage: "person.circle")
                 }
