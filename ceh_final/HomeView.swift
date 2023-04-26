@@ -55,7 +55,7 @@ struct HomeView: View {
             .padding()
             Button {
                 print("выход")
-                ContentView.shared.userIsLoggedIn = false;
+                
             } label: {
                 Text("ВЫЙТИ")
                     .bold()

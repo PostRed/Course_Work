@@ -20,7 +20,7 @@ struct SettingsView: View {
     @State private var sales_notice = true
     @State private var service_notice = true
     @State private var orders_notice = true
-    
+  
     var body: some View {
         ZStack {
             getColor(color: Colors.customGrey)
