@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var surname = ""
     @State private var patronymic = ""
     @State private var phone = ""
-    @State public var userIsLoggedIn = false //!!!!!
+    @State public var userIsLoggedIn = true //!!!!!
     @State public var is_login = true
     @State private var showingAlert = false
     @State private var error_text = ""
@@ -36,13 +36,12 @@ struct ContentView: View {
         TabView {
             home_page
                 .tabItem {
-                    Label("МОЯ КАРТА", systemImage: "person.circle")
+                    Label("ПРОФИЛЬ", systemImage: "person.circle")
                 }
             EntryView()
                 .tabItem {
                     Label("ПРИЁМ", systemImage: "square.and.pencil")
                 }
-
             AboutUsView()
                 .tabItem {
                     Label("О НАС", systemImage: "info.circle")
@@ -261,14 +260,17 @@ struct ContentView: View {
                 
             } label: {
                 Text("ВЫЙТИ")
+                    .foregroundColor(getColor(color: Colors.customGrey))
                     .bold()
                     .frame(width: 200, height: 40)
                     .background(
                         RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .foregroundColor(getColor(color: Colors.customGrey))
+                            .foregroundColor(getColor(color: Colors.customYellow))
                     )
                     .foregroundColor(.white)
+                    
             }
+            .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
         }
         .onAppear {
             self.viewModel.getUser()

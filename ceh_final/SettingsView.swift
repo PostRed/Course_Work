@@ -120,6 +120,7 @@ struct SettingsView: View {
                         .foregroundColor(getColor(color: Colors.customGrey))
                 }
             }
+            .padding()
 
             
             }

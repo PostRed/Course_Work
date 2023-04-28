@@ -13,6 +13,7 @@ enum Colors {
     case customYellow
     case backgroundYellow
     case lightCustomGrey
+    case white
 }
 
 func getColor(color: Colors) -> Color? {
@@ -25,5 +26,7 @@ func getColor(color: Colors) -> Color? {
         return Color(red: 252/255.0, green: 223/255.0, blue: 25/255.0)
     case .backgroundYellow:
         return Color(red: 252/255.0, green: 240/255.0, blue: 138/255.0)
+    case .white:
+        return Color(red: 255/255.0, green: 255/255.0, blue: 255/255.0)
     }
 }
