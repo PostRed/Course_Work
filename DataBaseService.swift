@@ -17,6 +17,10 @@ class DatabaseService {
         return db.collection("users")
     }
     
+    private var ordersRef: CollectionReference {
+        return db.collection("orders")
+    }
+    
     private init(){}
     
     func setUser(user: User, comletion: @escaping (Result<User, Error>) -> ()) {
@@ -27,6 +31,41 @@ class DatabaseService {
                 comletion(.failure(error))
             } else {
                 comletion(.success(user))
+            }
+        }
+        
+    }
+    
+    func getOrders(by userId: String?, comletion: @escaping (Result<[Order], Error>) -> ()) {
+        self.ordersRef.getDocuments {
+            qSnap, error in
+            if let qSnap = qSnap {
+                var orders = [Order]()
+                for doc in qSnap.documents {
+                    if let userId = userId {
+                        if let order = Order(doc: doc), order.userId == userId {
+                            orders.append(order)
+                        }
+                    }
+                }
+                comletion(.success(orders))
+            } else if let error = error {
+                comletion(.failure(error))
+            }
+            
+            
+        }
+        
+    }
+    
+    func setOrder(order: Order, comletion: @escaping (Result<Order, Error>) -> ()) {
+        ordersRef.document(order.id).setData(
+            order.representation
+        ) {error in
+            if let error = error {
+                comletion(.failure(error))
+            } else {
+                comletion(.success(order))
             }
         }
         

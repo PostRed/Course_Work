@@ -9,18 +9,19 @@ import SwiftUI
 import Firebase
  
 struct ContentView: View {
-
+    
     @State private var email = ""
     @State private var password = ""
     @State private var name = ""
     @State private var surname = ""
     @State private var patronymic = ""
     @State private var phone = ""
-    @State public var userIsLoggedIn = true //!!!!!
+    @State public var userIsLoggedIn = false //!!!!!
+    @State private var showingLogOutAlert = false
     @State public var is_login = true
     @State private var showingAlert = false
     @State private var error_text = ""
-    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "Email", password: "", name: "Name", surname: "", patronymic: "", phone: 0000000000))
+    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "", password: "", name: "", surname: "", patronymic: "", phone: 0))
     
     var body: some View {
         if userIsLoggedIn {
@@ -56,7 +57,7 @@ struct ContentView: View {
                 }
         }.accentColor(getColor(color: Colors.customYellow))
     }
-        
+    
     var login_page: some View {
         ZStack {
             getColor(color: Colors.customGrey)
@@ -147,14 +148,14 @@ struct ContentView: View {
                         .bold()
                         .foregroundColor(getColor(color: Colors.customGrey))
                 }
-                    
+                
             }
             
         }
         .alert(error_text, isPresented: $showingAlert) {
-                   Button("OK", role: .cancel) { }
-               }
-       
+            Button("OK", role: .cancel) { }
+        }
+        
         .ignoresSafeArea()
     }
     
@@ -193,26 +194,26 @@ struct ContentView: View {
                                    password: password) {
                 result, error in
                 if let result = result {
-                        let user = User(
-                            id: result.user.uid,
-                            email: email,
-                            password: password,
-                            name: name,
-                            surname: surname,
-                            patronymic: patronymic,
-                            phone: int_phone
-                        )
-                        DatabaseService.shared.setUser(user: user) {
-                            resultDB in
-                            switch resultDB {
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            case .success(_):
-                                print()
-                            }
+                    let user = User(
+                        id: result.user.uid,
+                        email: email,
+                        password: password,
+                        name: name,
+                        surname: surname,
+                        patronymic: patronymic,
+                        phone: int_phone
+                    )
+                    DatabaseService.shared.setUser(user: user) {
+                        resultDB in
+                        switch resultDB {
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        case .success(_):
+                            print()
                         }
-                        userIsLoggedIn.toggle()
-                   
+                    }
+                    userIsLoggedIn.toggle()
+                    
                 } else if let error = error {
                     error_text = error.localizedDescription
                     print(error.localizedDescription)
@@ -255,9 +256,27 @@ struct ContentView: View {
             }
             .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 220)
             .padding()
+            if viewModel.orders.count != 0 {
+                VStack {
+                            ForEach(viewModel.orders, id: \.id) { order in
+                                Text("Заказ в \(order.type)")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                HStack {
+                                    Text("\(order.description)")
+                                        .bold()
+                                        .foregroundColor(.white)
+                                    Text("Статус: \(order.status)")
+                                        .bold()
+                                        .foregroundColor(.white)
+                                }.padding()
+                            }
+                        }
+            }
+            
             Button {
-                userIsLoggedIn = false
                 
+                showingLogOutAlert.toggle()
             } label: {
                 Text("ВЫЙТИ")
                     .foregroundColor(getColor(color: Colors.customGrey))
@@ -268,18 +287,25 @@ struct ContentView: View {
                             .foregroundColor(getColor(color: Colors.customYellow))
                     )
                     .foregroundColor(.white)
-                    
+                
             }
             .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
-        }
-        .onAppear {
-            self.viewModel.getUser()
+            .confirmationDialog("Действительно хотите выйти?", isPresented: $showingLogOutAlert, titleVisibility: .visible) {
+                Button{
+                    userIsLoggedIn = false
+                } label: {
+                    Text("ДА")
+                }
+            }
+            .onAppear {
+                self.viewModel.getUser()
+                self.viewModel.getOrders()
+            }
+            
         }
         
     }
-        
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

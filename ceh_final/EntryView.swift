@@ -106,7 +106,18 @@ struct EntryView: View {
                 }
                 .padding()
                 Button {
-                    print("entry")
+                    let order = Order(type: selectedType, description: description, date: date, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
+                    
+                    DatabaseService.shared.setOrder(order: order) {
+                        resultDB in
+                        switch resultDB {
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        case .success(_):
+                            print()
+                        }
+                    }
+                    
                 } label: {
                     Text("ЗАПИСАТЬСЯ")
                         .bold()

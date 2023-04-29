@@ -9,9 +9,26 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var user: User
+    @Published var orders: [Order] = [Order]()
     
     init(user: User) {
         self.user = user
+    }
+    
+    func getOrders() {
+        DatabaseService.shared.getOrders(by: AuthService.shared.current_user?.uid)
+        {
+            result in
+            switch result {
+            case .success(let new_orders):
+                print()
+                print(new_orders.count)
+                self.orders = new_orders
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
     }
     
     func setUser() {
