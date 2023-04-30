@@ -16,14 +16,14 @@ struct OrderView: View {
         VStack {
             Text("Заказ в \(order.type)")
                 .bold()
-                .foregroundColor(.white)
+                .foregroundColor(.red)
             HStack {
                 Text("\(order.description)")
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(.red)
                 Text("Статус: \(order.status)")
                     .bold()
-                    .foregroundColor(.white)
+                    .foregroundColor(.red)
             }.padding()
         }
         

@@ -16,6 +16,8 @@ struct EntryView: View {
     @State private var selectedConnection = "Позвонить"
     @State private var date = Date.now
     @State private var description = ""
+    @State private var showEntryMessage = false
+    @State private var messageText = ""
     
     var body: some View {
         ZStack {
@@ -112,9 +114,13 @@ struct EntryView: View {
                         resultDB in
                         switch resultDB {
                         case .failure(let error):
+                            showEntryMessage = true
+                            messageText = "Не удалось создать заказ, попробуйте позже"
                             print(error.localizedDescription)
                         case .success(_):
-                            print()
+                            showEntryMessage = true
+                            messageText = "Заказ успешно создан"
+                            description = ""
                         }
                     }
                     
@@ -132,6 +138,9 @@ struct EntryView: View {
             }
             
             }
+        .alert(messageText, isPresented: $showEntryMessage) {
+            Button("OK", role: .cancel) { }
+        }
         
         }
     }

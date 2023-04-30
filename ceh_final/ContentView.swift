@@ -247,7 +247,7 @@ struct ContentView: View {
                 .padding()
             
             HStack {
-                Text("+7")
+                Text("\t+7")
                     .foregroundColor(getColor(color: Colors.customYellow))
                 TextField("ТЕЛЕФОН", value: $viewModel.user.phone, format: IntegerFormatStyle.number)
                     .foregroundColor(getColor(color: Colors.customYellow))
@@ -256,24 +256,18 @@ struct ContentView: View {
             }
             .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 220)
             .padding()
-            if viewModel.orders.count != 0 {
                 VStack {
                             ForEach(viewModel.orders, id: \.id) { order in
-                                Text("Заказ в \(order.type)")
-                                    .bold()
+                                Text(" Заказ в \(order.type)\n \(order.description)\n Статус: \(order.status)")
+                                    .font(.system(size: 15, weight: .bold, design: .rounded))
                                     .foregroundColor(.white)
-                                HStack {
-                                    Text("\(order.description)")
-                                        .bold()
-                                        .foregroundColor(.white)
-                                    Text("Статус: \(order.status)")
-                                        .bold()
-                                        .foregroundColor(.white)
-                                }.padding()
+                                    .frame(width:  UIScreen.main.bounds.size.width - 15, alignment: .topLeading)
+                                    .padding()
+                                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
                             }
-                        }
-            }
+                }.padding()
             
+                
             Button {
                 
                 showingLogOutAlert.toggle()
