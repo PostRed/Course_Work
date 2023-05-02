@@ -82,7 +82,7 @@ class DatabaseService {
             guard let userPatronymic = data["patronymic"] as? String else {return}
             guard let userPassword = data["password"] as? String else {return}
             guard let userEmail = data["email"] as? String else {return}
-            guard let userPhone = data["phone"] as? Int else {return}
+            guard let userPhone = data["phone"] as? String else {return}
             
             let user = User(id: userId, email: userEmail, password: userPassword, name: userName,
                             surname: userSurname, patronymic: userPatronymic, phone: userPhone)

@@ -21,12 +21,14 @@ struct ContentView: View {
     @State private var patronymic = ""
     @State private var phone = ""
     @State private var new_phone = ""
-    @State public var userIsLoggedIn = false //!!!!!
+    @State public var userIsLoggedIn = true //!!!!!
     @State private var showingLogOutAlert = false
     @State public var is_login = true
     @State private var showingAlert = false
     @State private var error_text = ""
-    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "", password: "", name: "", surname: "", patronymic: "", phone: 0))
+    @State private var settings_text = ""
+    @State private var show_settings_message = false
+    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "", password: "", name: "", surname: "", patronymic: "", phone: ""))
     
     var body: some View {
         if userIsLoggedIn {
@@ -206,7 +208,7 @@ struct ContentView: View {
                         name: name,
                         surname: surname,
                         patronymic: patronymic,
-                        phone: int_phone
+                        phone: phone
                     )
                     DatabaseService.shared.setUser(user: user) {
                         resultDB in
@@ -287,7 +289,7 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .bold()
                     }
-                TextField("+7 ТЕЛЕФОН", text: $new_phone)
+                TextField("+7 ТЕЛЕФОН", text: $viewModel.user.phone)
                     .foregroundColor(getColor(color: Colors.customGrey))
                     .textFieldStyle(.roundedBorder)
                     .placeholder(when: phone.isEmpty) {
@@ -328,12 +330,17 @@ struct ContentView: View {
                         .foregroundColor(getColor(color: Colors.customGrey))
                 }
             }
+            .alert(settings_text, isPresented: $show_settings_message) {
+                Button("OK", role: .cancel) { }
+            }
             .padding()
         }
     }
     
     func save_changes(){
         viewModel.setUser()
+        show_settings_message = true
+        settings_text = "Изменения успешно сохранены"
     }
     
     var home_page: some View {
@@ -361,7 +368,7 @@ struct ContentView: View {
             HStack {
                 Text("\t+7")
                     .foregroundColor(getColor(color: Colors.customYellow))
-                TextField("ТЕЛЕФОН", value: $viewModel.user.phone, format: IntegerFormatStyle.number)
+                TextField("ТЕЛЕФОН", text: $viewModel.user.phone)
                     .foregroundColor(getColor(color: Colors.customYellow))
                 TextField("ПОЧТА", text: $viewModel.user.email)
                     .foregroundColor(getColor(color: Colors.customYellow))

@@ -9,25 +9,47 @@ import Foundation
 import SwiftUI
 
 
-// Фото и видео взять из инсты
 struct AboutUsView: View {
     
     var body: some View {
-        ZStack {
-            getColor(color: Colors.customGrey)
-            Text("ЦЕХ")
-                .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
-                .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(getColor(color: Colors.customYellow)!, lineWidth: 3)
-                            .frame(width: 150, height: 40)
-                            .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
-                           
-                        
-                    )
-                   .fontWeight(.bold)
-                   .foregroundColor(getColor(color: Colors.customYellow))
+        NavigationView {
+            ScrollView {
+                LazyVStack (alignment: .leading) {
+                    Text(" ЦЕХ - для тех, кто любит\n свой автомобиль")
+                        .foregroundColor(getColor(color: Colors.customYellow))
+                        .font(.system(size: 30, weight: .bold))
+                    ScrollView(.horizontal) {
+                        LazyHStack(spacing: 0) {
+                            ForEach(1..<9) {
+                                Image("car\($0)")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 250, height: 250)
+                                    .cornerRadius(8)
+                            }
+                            .padding ()
+                            .frame (height: 250)
+                        }
+                    }
+                    ScrollView(.horizontal) {
+                        LazyHStack(spacing: 0) {
+                            ForEach(1..<4) {
+                                Image("rudder\($0)")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 250, height: 250)
+                                    .cornerRadius(8)
+                            }
+                            .padding ()
+                            .frame (height: 250)
+                        }
+                    }
+                    Text(" Профессиональные мастера\n Обслуживание премиум-класса,\n Качество превыше всего")
+                        .foregroundColor(getColor(color: Colors.customYellow))
+                        .font(.system(size: 20, weight: .bold))
+                }
             }
+            .background(getColor(color: Colors.customGrey))
+        }
     }
 }

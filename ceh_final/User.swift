@@ -14,7 +14,7 @@ struct User: Identifiable {
     var name: String
     var surname: String
     var patronymic: String
-    var phone: Int
+    var phone: String
     
     var representation: [String: Any] {
         var repres = [String: Any]()

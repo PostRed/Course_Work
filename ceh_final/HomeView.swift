@@ -19,7 +19,7 @@ struct HomeView: View {
     @State private var savedOffset = CGSize.zero
     @State private var dragValue = CGSize.zero
     
-    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "Email", password: "", name: "Name", surname: "", patronymic: "", phone: 0000000000))
+    @StateObject var viewModel = HomeViewModel(user: User(id: "", email: "Email", password: "", name: "Name", surname: "", patronymic: "", phone: ""))
     
     var body: some View {
         ZStack {
@@ -46,7 +46,7 @@ struct HomeView: View {
             HStack {
                 Text("+7")
                     .foregroundColor(getColor(color: Colors.customYellow))
-                TextField("ТЕЛЕФОН", value: $viewModel.user.phone, format: IntegerFormatStyle.number)
+                TextField("ТЕЛЕФОН", text: $viewModel.user.phone)
                     .foregroundColor(getColor(color: Colors.customYellow))
                 TextField("ПОЧТА", text: $viewModel.user.email)
                     .foregroundColor(getColor(color: Colors.customYellow))
