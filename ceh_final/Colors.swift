@@ -11,22 +11,13 @@ import SwiftUI
 enum Colors {
     case customGrey
     case customYellow
-    case backgroundYellow
-    case lightCustomGrey
-    case white
 }
 
 func getColor(color: Colors) -> Color? {
     switch color {
     case .customGrey:
         return Color(red: 48/255.0, green: 48/255.0, blue: 48/255.0)
-    case .lightCustomGrey:
-        return Color(red: 145/255.0, green: 145/255.0, blue: 145/255.0)
     case .customYellow:
         return Color(red: 252/255.0, green: 223/255.0, blue: 25/255.0)
-    case .backgroundYellow:
-        return Color(red: 252/255.0, green: 240/255.0, blue: 138/255.0)
-    case .white:
-        return Color(red: 255/255.0, green: 255/255.0, blue: 255/255.0)
     }
 }

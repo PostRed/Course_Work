@@ -17,7 +17,7 @@ struct AboutUsView: View {
                 LazyVStack (alignment: .leading) {
                     Text(" ЦЕХ - для тех, кто любит\n свой автомобиль")
                         .foregroundColor(getColor(color: Colors.customYellow))
-                        .font(.system(size: 30, weight: .bold))
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 0) {
                             ForEach(1..<9) {
@@ -46,7 +46,7 @@ struct AboutUsView: View {
                     }
                     Text(" Профессиональные мастера\n Обслуживание премиум-класса,\n Качество превыше всего")
                         .foregroundColor(getColor(color: Colors.customYellow))
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
                 }
             }
             .background(getColor(color: Colors.customGrey))

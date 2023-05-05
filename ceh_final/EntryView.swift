@@ -18,10 +18,13 @@ struct EntryView: View {
     @State private var description = ""
     @State private var showEntryMessage = false
     @State private var messageText = ""
+
     
     var body: some View {
         ZStack {
-            getColor(color: Colors.customGrey)
+            Image("back_car")
+                .resizable()
+                .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
             Text("ЦЕХ")
                 .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
                 .padding()
@@ -40,12 +43,14 @@ struct EntryView: View {
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .bold()
                     .foregroundColor(getColor(color: Colors.customYellow))
-                
+                HStack {
                     Text("Выберите тип сервиса:")
-                    .bold()
-                        //.offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 220)
-                    .foregroundColor(getColor(color: Colors.customYellow))
-                        .padding()
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(alignment: .topLeading)
+                    .padding()
+                   
+                
                     Picker("Выберите тип сервиса:", selection: $selectedType) {
                         ForEach(types, id: \.self) {
                             Text($0)
@@ -53,46 +58,58 @@ struct EntryView: View {
                                 .foregroundColor(getColor(color: Colors.customYellow))
                         }
                     }
-                    .foregroundColor(getColor(color: Colors.customYellow))
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding()
                     .clipped()
-                    .foregroundColor(getColor(color: Colors.customYellow))
-                   // .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 255)
-                .padding()
+                }
+                .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
+                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .background(Color("grey_light"))
+                    
                 
-                HStack() {
+                HStack(spacing: 80) {
                     Text("Выберите дату:")
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
                         .bold()
-                        .foregroundColor(getColor(color: Colors.customYellow))
-                     //   .offset(x:20, y:-UIScreen.main.bounds.size.height/2 + 300)
+                        .foregroundColor(.white)
+                        .padding()
                     DatePicker(selection: $date, in: Date.now..., displayedComponents: .date) {
-                                    
-                                }
+                    }
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
                     .clipped()
                     .labelsHidden()
                     .colorInvert()
                     .colorMultiply(getColor(color: Colors.customYellow) ?? .yellow)
-                       
                     .accentColor(getColor(color: Colors.customYellow))
-                   // .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 300)
                     
                 }
+                .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
+                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .background(Color("grey_light"))
                 .padding()
                
                 
-                Text("Опишите запрос:")
-                   // .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 350)
+                Text("ОПИШИТЕ ЗАПРОС:")
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
                     .bold()
                     .foregroundColor(getColor(color: Colors.customYellow))
-                TextField("Запрос", text: $description)
-                    .textFieldStyle(MyTextFieldStyle())
-                    //.offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 420)
-                    .foregroundColor(.white)
                 
-                HStack() {
+                TextField("Запрос", text: $description)
+                    .frame(alignment: .topLeading)
+                    .padding()
+                    .foregroundColor(.white)
+                    .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
+                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                    .background(Color("grey_light"))
+                    .padding()
+                   
+                
+                HStack(spacing: 35) {
                     Text("Как с Вами связаться:")
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
                         .bold()
-                        .foregroundColor(getColor(color: Colors.customYellow))
-                    //    .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 500)
+                        .foregroundColor(.white)
                         .padding()
                     Picker("Как с Вами связаться:", selection: $selectedConnection) {
                         ForEach(connection, id: \.self) {
@@ -104,9 +121,12 @@ struct EntryView: View {
                     .accentColor(getColor(color: Colors.customYellow))
                     .clipped()
                     .foregroundColor(getColor(color: Colors.customYellow))
-                   // .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 500)
                 }
+                .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
+                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .background(Color("grey_light"))
                 .padding()
+                
                 Button {
                     let order = Order(type: selectedType, description: description, date: date, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
                     

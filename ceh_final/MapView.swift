@@ -12,9 +12,9 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            getColor(color: Colors.customGrey)
-           // getColor(color: Colors.customGrey)
-            //.ignoresSafeArea()
+            Image("back_car")
+                .resizable()
+                .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
             Text("ЦЕХ")
                 .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
                 .padding()

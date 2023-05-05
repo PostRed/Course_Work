@@ -23,11 +23,9 @@
 		C5A2F15829BB3D12002EEAAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A2F15729BB3D12002EEAAA /* Assets.xcassets */; };
 		C5A2F15B29BB3D12002EEAAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A2F15A29BB3D12002EEAAA /* Preview Assets.xcassets */; };
 		C5A2F16229BB408C002EEAAA /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16129BB408C002EEAAA /* Menu.swift */; };
-		C5A2F16429BB9C2A002EEAAA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16329BB9C2A002EEAAA /* HomeView.swift */; };
 		C5A2F16729BB9F72002EEAAA /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16629BB9F72002EEAAA /* EntryView.swift */; };
 		C5A2F16929BB9FB4002EEAAA /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16829BB9FB4002EEAAA /* AboutUsView.swift */; };
 		C5A2F16B29BB9FDF002EEAAA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16A29BB9FDF002EEAAA /* MapView.swift */; };
-		C5A2F16D29BBA013002EEAAA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16C29BBA013002EEAAA /* SettingsView.swift */; };
 		C5EFA7962A015725005AD737 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFA7952A015725005AD737 /* Help.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,11 +45,9 @@
 		C5A2F15729BB3D12002EEAAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5A2F15A29BB3D12002EEAAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5A2F16129BB408C002EEAAA /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		C5A2F16329BB9C2A002EEAAA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C5A2F16629BB9F72002EEAAA /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		C5A2F16829BB9FB4002EEAAA /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5A2F16A29BB9FDF002EEAAA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		C5A2F16C29BBA013002EEAAA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5EFA7952A015725005AD737 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,12 +86,10 @@
 			children = (
 				C537097F29F3F63A00C5E5E8 /* GoogleService-Info.plist */,
 				C5A2F15329BB3D11002EEAAA /* ceh_finalApp.swift */,
-				C5A2F16C29BBA013002EEAAA /* SettingsView.swift */,
 				C5A2F16A29BB9FDF002EEAAA /* MapView.swift */,
 				C5A2F15529BB3D11002EEAAA /* ContentView.swift */,
 				C5A2F16829BB9FB4002EEAAA /* AboutUsView.swift */,
 				C5A2F16629BB9F72002EEAAA /* EntryView.swift */,
-				C5A2F16329BB9C2A002EEAAA /* HomeView.swift */,
 				C5A2F15729BB3D12002EEAAA /* Assets.xcassets */,
 				C5A2F15929BB3D12002EEAAA /* Preview Content */,
 				C5A2F16129BB408C002EEAAA /* Menu.swift */,
@@ -200,7 +194,6 @@
 				C5A2F16B29BB9FDF002EEAAA /* MapView.swift in Sources */,
 				C5474DD029FD74AA0053CFCF /* OrderView.swift in Sources */,
 				C527C6BD29BD075200A0B261 /* Colors.swift in Sources */,
-				C5A2F16D29BBA013002EEAAA /* SettingsView.swift in Sources */,
 				C5474DCE29FD2D030053CFCF /* OrderStatus.swift in Sources */,
 				C5A2F16229BB408C002EEAAA /* Menu.swift in Sources */,
 				C5A2F15629BB3D11002EEAAA /* ContentView.swift in Sources */,
@@ -209,7 +202,6 @@
 				C5601A0A29F857F600F1C66C /* AuthService.swift in Sources */,
 				C5A2F16929BB9FB4002EEAAA /* AboutUsView.swift in Sources */,
 				C5601A0829F84C0B00F1C66C /* HomeViewModel.swift in Sources */,
-				C5A2F16429BB9C2A002EEAAA /* HomeView.swift in Sources */,
 				C5409E2629EEEEC100D9B057 /* DataBaseService.swift in Sources */,
 				C5409E2429EEE87200D9B057 /* User.swift in Sources */,
 				C5EFA7962A015725005AD737 /* Help.swift in Sources */,

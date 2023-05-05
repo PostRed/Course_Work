@@ -52,6 +52,7 @@ class HomeViewModel: ObservableObject {
             result in
             switch result {
             case .success(let new_user):
+                print(new_user.phone)
                 self.user = new_user
             case .failure(let error):
                 print(error.localizedDescription)
