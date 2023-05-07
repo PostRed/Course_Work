@@ -21,7 +21,7 @@ struct ContentView: View {
     @State private var patronymic = ""
     @State private var phone = ""
     @State private var new_phone = ""
-    @State public var userIsLoggedIn = true //!!!!!
+    @State public var userIsLoggedIn = false //!!!!!
     @State private var showingLogOutAlert = false
     @State public var is_login = true
     @State private var showingAlert = false

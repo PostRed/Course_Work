@@ -44,7 +44,7 @@ struct AboutUsView: View {
                             .frame (height: 250)
                         }
                     }
-                    Text(" Профессиональные мастера\n Обслуживание премиум-класса,\n Качество превыше всего")
+                    Text("Детейлинг, Москва, Перекопская 34к2\nАвтосервис, Домодедово, Заречная 18")
                         .foregroundColor(getColor(color: Colors.customYellow))
                         .font(.system(size: 20, weight: .bold, design: .rounded))
                 }
