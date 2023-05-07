@@ -16,7 +16,7 @@ struct AboutUsView: View {
             ScrollView {
                 LazyVStack (alignment: .leading) {
                     Text(" ЦЕХ - для тех, кто любит\n свой автомобиль")
-                        .foregroundColor(getColor(color: Colors.customYellow))
+                        .foregroundColor(Color("yellow"))
                         .font(.system(size: 30, weight: .bold, design: .rounded))
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 0) {
@@ -30,7 +30,7 @@ struct AboutUsView: View {
                             .padding ()
                             .frame (height: 250)
                         }
-                    }
+                    } .background(Color("grey"))
                     ScrollView(.horizontal) {
                         LazyHStack(spacing: 0) {
                             ForEach(1..<4) {
@@ -43,13 +43,12 @@ struct AboutUsView: View {
                             .padding ()
                             .frame (height: 250)
                         }
-                    }
+                    } .background(Color("grey"))
                     Text("Детейлинг, Москва, Перекопская 34к2\nАвтосервис, Домодедово, Заречная 18")
-                        .foregroundColor(getColor(color: Colors.customYellow))
+                        .foregroundColor(Color("yellow"))
                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                }
+                } .background(Color("grey"))
             }
-            .background(getColor(color: Colors.customGrey))
-        }
+        }.background(Color("grey"))
     }
 }

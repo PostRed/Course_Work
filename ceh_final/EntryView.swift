@@ -25,24 +25,21 @@ struct EntryView: View {
             Image("back_car")
                 .resizable()
                 .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
-            Text("ЦЕХ")
-                .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(getColor(color: Colors.customYellow)!, lineWidth: 3)
-                        .frame(width: 150, height: 40)
-                        .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
-                    
-                    
-                )
-                .fontWeight(.bold)
-                .foregroundColor(getColor(color: Colors.customYellow))
             VStack() {
+                Text("ЦЕХ")
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color("yellow"), lineWidth: 3)
+                            .frame(width: 150, height: 40)              
+                    )
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("yellow"))
+                
                 Text("ЗАПИШИТЕСЬ НА ПРИЁМ")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .bold()
-                    .foregroundColor(getColor(color: Colors.customYellow))
+                    .foregroundColor(Color("yellow"))
                 HStack {
                     Text("Выберите тип сервиса:")
                     .font(.system(size: 15, weight: .bold, design: .rounded))
@@ -55,7 +52,7 @@ struct EntryView: View {
                         ForEach(types, id: \.self) {
                             Text($0)
                                 .font(.system(size: 30, weight: .bold, design: .rounded))
-                                .foregroundColor(getColor(color: Colors.customYellow))
+                                .foregroundColor(Color("yellow"))
                         }
                     }
                     .font(.system(size: 15, weight: .bold, design: .rounded))
@@ -64,7 +61,7 @@ struct EntryView: View {
                     .clipped()
                 }
                 .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .border(Color("yellow"),  width: 3)
                 .background(Color("grey_light"))
                     
                 
@@ -80,12 +77,12 @@ struct EntryView: View {
                     .clipped()
                     .labelsHidden()
                     .colorInvert()
-                    .colorMultiply(getColor(color: Colors.customYellow) ?? .yellow)
-                    .accentColor(getColor(color: Colors.customYellow))
+                    .colorMultiply(Color("yellow"))
+                    .accentColor(Color("yellow"))
                     
                 }
                 .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .border(Color("yellow"),  width: 3)
                 .background(Color("grey_light"))
                 .padding()
                
@@ -93,14 +90,14 @@ struct EntryView: View {
                 Text("ОПИШИТЕ ЗАПРОС:")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .bold()
-                    .foregroundColor(getColor(color: Colors.customYellow))
+                    .foregroundColor(Color("yellow"))
                 
                 TextField("Запрос", text: $description)
                     .frame(alignment: .topLeading)
                     .padding()
                     .foregroundColor(.white)
                     .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                    .border(Color("yellow"),  width: 3)
                     .background(Color("grey_light"))
                     .padding()
                    
@@ -115,15 +112,15 @@ struct EntryView: View {
                         ForEach(connection, id: \.self) {
                             Text($0)
                                 .font(.system(size: 30, weight: .bold, design: .rounded))
-                                .foregroundColor(getColor(color: Colors.customGrey))
+                                .foregroundColor(Color("grey"))
                         }
                     }
-                    .accentColor(getColor(color: Colors.customYellow))
+                    .accentColor(Color("yellow"))
                     .clipped()
-                    .foregroundColor(getColor(color: Colors.customYellow))
+                    .foregroundColor(Color("yellow"))
                 }
                 .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-                .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
+                .border(Color("yellow"),  width: 3)
                 .background(Color("grey_light"))
                 .padding()
                 
@@ -150,9 +147,9 @@ struct EntryView: View {
                         .frame(width: 200, height: 40)
                         .background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(getColor(color: Colors.customYellow))
+                                .foregroundColor(Color("yellow"))
                         )
-                        .foregroundColor(getColor(color: Colors.customGrey))
+                        .foregroundColor(Color("grey"))
             }
             
             }
@@ -171,7 +168,7 @@ struct MyTextFieldStyle: TextFieldStyle {
         .padding(30)
         .background(
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(getColor(color: Colors.customYellow) ?? .yellow, lineWidth: 3)
+                .stroke(Color("yellow"), lineWidth: 3)
         ).padding()
     }
 }

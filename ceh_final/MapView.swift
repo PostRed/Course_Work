@@ -36,7 +36,7 @@ struct MapView: View {
                               .padding()
                               .foregroundColor(.white)
                               .font(.system(size: 12, weight: .bold, design: .rounded))
-                              .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 1)
+                              .border(Color("yellow"),  width: 1)
                               .background(Color("grey_light"))
                       }
                    )
