@@ -237,17 +237,20 @@ struct ContentView: View {
             Image("back_car")
                 .resizable()
                 .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
+            Text("ЦЕХ")
+                .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                        .stroke(Color("yellow"), lineWidth: 3)
+                        .frame(width: 150, height: 40)
+                )
+                .fontWeight(.bold)
+                .foregroundColor(Color("yellow"))
             
             VStack () {
-                Text("ЦЕХ")
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color("yellow"), lineWidth: 3)
-                            .frame(width: 150, height: 40)
-                    )
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("yellow"))
+               
                 TextField("ПОЧТА", text: $viewModel.user.email)
                     .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
                     .foregroundColor(Color("grey"))
@@ -302,59 +305,29 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .bold()
                     }
-//
-//                Toggle("Оповещать об изменениях статусов заказа", isOn: $orders_notice)
-//                    .font(.system(size: 15, weight: .bold, design: .rounded))
-//                    .bold()
-//                    .padding()
-//                    .toggleStyle(SwitchToggleStyle(tint: getColor(color: Colors.customYellow) ?? .yellow))
-//                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
-//                    .foregroundColor(getColor(color: Colors.customYellow))
-//                    .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-//                    .background(Color("grey_light"))
-//                Toggle("Напоминать о плановом ТО", isOn: $service_notice)
-//                    .font(.system(size: 15, weight: .bold, design: .rounded))
-//                    .bold()
-//                    .padding()
-//                    .toggleStyle(SwitchToggleStyle(tint: getColor(color: Colors.customYellow) ?? .yellow))
-//                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
-//                    .foregroundColor(getColor(color: Colors.customYellow))
-//                    .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-//                    .background(Color("grey_light"))
-//
-//                Toggle("Оповещать о новых акциях и предложениях", isOn: $sales_notice)
-//                    .font(.system(size: 15, weight: .bold, design: .rounded))
-//                    .bold()
-//                    .padding()
-//                    .toggleStyle(SwitchToggleStyle(tint: getColor(color: Colors.customYellow) ?? .yellow))
-//                    .border(getColor(color: Colors.customYellow) ?? .yellow,  width: 3)
-//                    .foregroundColor(getColor(color: Colors.customYellow))
-//                    .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
-//                    .background(Color("grey_light"))
-//
-                // Собачки для смены темы и настройки оповещений 1 акции, 2 плановые ТО, 3 изменения статусов заказов
+
                 
                
-                Button {
-                    save_changes()
-                } label: {
-                    Text("СОХРАНИТЬ")
-                        .bold()
-                        .frame(width: 200, height: 40)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(Color("yellow"))
-                        )
-                        .foregroundColor(Color("grey"))
-                }
-                .padding()
-                .alert(settings_text, isPresented: $show_settings_message) {
-                    Button("OK", role: .cancel) { }
-                }
-              //  .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
+                
             }
             
-           
+            Button {
+                save_changes()
+            } label: {
+                Text("СОХРАНИТЬ")
+                    .bold()
+                    .frame(width: 200, height: 40)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .foregroundColor(Color("yellow"))
+                    )
+                    .foregroundColor(Color("grey"))
+            }
+            .padding()
+            .alert(settings_text, isPresented: $show_settings_message) {
+                Button("OK", role: .cancel) { }
+            }
+            .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
         }
         
     }
@@ -369,28 +342,29 @@ struct ContentView: View {
                 Image("back_car")
                     .resizable()
                     .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
+                Text("ЦЕХ")
+                    .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                            .stroke(Color("yellow"), lineWidth: 3)
+                            .frame(width: 150, height: 40)
+                    )
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("yellow"))
+                Text(self.viewModel.user.name)
+                    .foregroundColor(Color("yellow"))
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 180)
+                    .padding()
+                
+                Text("+7 \(viewModel.user.phone)\t\(viewModel.user.email)")
+                    .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 220)
+                    .foregroundColor(Color("yellow"))
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .padding()
                 VStack {
-                    Text("ЦЕХ")
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color("yellow"), lineWidth: 3)
-                                .frame(width: 150, height: 40)
-                            
-                            
-                        )
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("yellow"))
-                    Text(self.viewModel.user.name)
-                        .foregroundColor(Color("yellow"))
-                        .font(.system(size: 30, weight: .bold, design: .rounded))
-                       // .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 180)
-                        .padding()
-                    
-                    Text("+7 \(viewModel.user.phone)\t\(viewModel.user.email)")
-                        .foregroundColor(Color("yellow"))
-                        .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .padding()
                     ForEach(viewModel.orders, id: \.id) { order in
                         Text(" Заказ в \(order.type)\n \(order.description)\n Статус: \(order.status)")
                             .padding()
@@ -401,32 +375,35 @@ struct ContentView: View {
                             .background(Color("grey_light"))
                     }
                     
-                    Button {
-                        showingLogOutAlert.toggle()
+                   
+                }
+                Button {
+                    showingLogOutAlert.toggle()
+                } label: {
+                    Text("ВЫЙТИ")
+                        .foregroundColor(Color("grey"))
+                        .bold()
+                        .frame(width: 200, height: 40)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                .foregroundColor(Color("yellow"))
+                        )
+                        .foregroundColor(.white)
+                    
+                }
+                .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
+                .confirmationDialog("Действительно хотите выйти?", isPresented: $showingLogOutAlert, titleVisibility: .visible) {
+                    Button{
+                        userIsLoggedIn = false
                     } label: {
-                        Text("ВЫЙТИ")
-                            .foregroundColor(Color("grey"))
-                            .bold()
-                            .frame(width: 200, height: 40)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                    .foregroundColor(Color("yellow"))
-                            )
-                            .foregroundColor(.white)
-                        
-                    }
-                    .confirmationDialog("Действительно хотите выйти?", isPresented: $showingLogOutAlert, titleVisibility: .visible) {
-                        Button{
-                            userIsLoggedIn = false
-                        } label: {
-                            Text("ДА")
-                        }
+                        Text("ДА")
                     }
                 }
-                .onAppear {
-                    self.viewModel.getUser()
-                    self.viewModel.getOrders()
-                }
+                
+            }
+            .onAppear {
+                self.viewModel.getUser()
+                self.viewModel.getOrders()
             }
     
         }

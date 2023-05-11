@@ -25,16 +25,18 @@ struct EntryView: View {
             Image("back_car")
                 .resizable()
                 .aspectRatio(UIImage(named: "back_car")!.size, contentMode: .fill)
+            Text("ЦЕХ")
+                .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .offset(x:0, y:-UIScreen.main.bounds.size.height/2 + 120)
+                        .stroke(Color("yellow"), lineWidth: 3)
+                        .frame(width: 150, height: 40)
+                )
+                .fontWeight(.bold)
+                .foregroundColor(Color("yellow"))
             VStack() {
-                Text("ЦЕХ")
-                    .padding()
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color("yellow"), lineWidth: 3)
-                            .frame(width: 150, height: 40)              
-                    )
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("yellow"))
                 
                 Text("ЗАПИШИТЕСЬ НА ПРИЁМ")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -124,35 +126,38 @@ struct EntryView: View {
                 .background(Color("grey_light"))
                 .padding()
                 
-                Button {
-                    let order = Order(type: selectedType, description: description, date: date, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
-                    
-                    DatabaseService.shared.setOrder(order: order) {
-                        resultDB in
-                        switch resultDB {
-                        case .failure(let error):
-                            showEntryMessage = true
-                            messageText = "Не удалось создать заказ, попробуйте позже"
-                            print(error.localizedDescription)
-                        case .success(_):
-                            showEntryMessage = true
-                            messageText = "Заказ успешно создан"
-                            description = ""
-                        }
-                    }
-                    
-                } label: {
-                    Text("ЗАПИСАТЬСЯ")
-                        .bold()
-                        .frame(width: 200, height: 40)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(Color("yellow"))
-                        )
-                        .foregroundColor(Color("grey"))
-            }
+               
             
             }
+            
+            Button {
+                let order = Order(type: selectedType, description: description, date: date, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
+                
+                DatabaseService.shared.setOrder(order: order) {
+                    resultDB in
+                    switch resultDB {
+                    case .failure(let error):
+                        showEntryMessage = true
+                        messageText = "Не удалось создать заказ, попробуйте позже"
+                        print(error.localizedDescription)
+                    case .success(_):
+                        showEntryMessage = true
+                        messageText = "Заказ успешно создан"
+                        description = ""
+                    }
+                }
+                
+            } label: {
+                Text("ЗАПИСАТЬСЯ")
+                    .bold()
+                    .frame(width: 200, height: 40)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .foregroundColor(Color("yellow"))
+                    )
+                    .foregroundColor(Color("grey"))
+        }
+            .offset(x:0, y:UIScreen.main.bounds.size.height/2 - 110)
             
             }
         .alert(messageText, isPresented: $showEntryMessage) {

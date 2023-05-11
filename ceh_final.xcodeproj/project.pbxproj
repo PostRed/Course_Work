@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C527C6BD29BD075200A0B261 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C527C6BC29BD075200A0B261 /* Colors.swift */; };
 		C537098029F3F63A00C5E5E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C537097F29F3F63A00C5E5E8 /* GoogleService-Info.plist */; };
 		C5409E2429EEE87200D9B057 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5409E2329EEE87200D9B057 /* User.swift */; };
 		C5409E2629EEEEC100D9B057 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5409E2529EEEEC100D9B057 /* DataBaseService.swift */; };
@@ -27,11 +26,9 @@
 		C5A2F16729BB9F72002EEAAA /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16629BB9F72002EEAAA /* EntryView.swift */; };
 		C5A2F16929BB9FB4002EEAAA /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16829BB9FB4002EEAAA /* AboutUsView.swift */; };
 		C5A2F16B29BB9FDF002EEAAA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A2F16A29BB9FDF002EEAAA /* MapView.swift */; };
-		C5EFA7962A015725005AD737 /* Help.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EFA7952A015725005AD737 /* Help.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C527C6BC29BD075200A0B261 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C537097F29F3F63A00C5E5E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C5409E2329EEE87200D9B057 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C5409E2529EEEEC100D9B057 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
@@ -50,7 +47,6 @@
 		C5A2F16629BB9F72002EEAAA /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		C5A2F16829BB9FB4002EEAAA /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5A2F16A29BB9FDF002EEAAA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		C5EFA7952A015725005AD737 /* Help.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Help.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +91,12 @@
 				C5A2F15729BB3D12002EEAAA /* Assets.xcassets */,
 				C5A2F15929BB3D12002EEAAA /* Preview Content */,
 				C5A2F16129BB408C002EEAAA /* Menu.swift */,
-				C527C6BC29BD075200A0B261 /* Colors.swift */,
 				C5409E2329EEE87200D9B057 /* User.swift */,
 				C5601A0729F84C0B00F1C66C /* HomeViewModel.swift */,
 				C5601A0929F857F600F1C66C /* AuthService.swift */,
 				C5474DCB29FBD6E70053CFCF /* Order.swift */,
 				C5474DCD29FD2D030053CFCF /* OrderStatus.swift */,
 				C5474DCF29FD74AA0053CFCF /* OrderView.swift */,
-				C5EFA7952A015725005AD737 /* Help.swift */,
 				C554A3D12A068C3500B589A1 /* MapLocation.swift */,
 			);
 			path = ceh_final;
@@ -196,7 +190,6 @@
 			files = (
 				C5A2F16B29BB9FDF002EEAAA /* MapView.swift in Sources */,
 				C5474DD029FD74AA0053CFCF /* OrderView.swift in Sources */,
-				C527C6BD29BD075200A0B261 /* Colors.swift in Sources */,
 				C554A3D22A068C3500B589A1 /* MapLocation.swift in Sources */,
 				C5474DCE29FD2D030053CFCF /* OrderStatus.swift in Sources */,
 				C5A2F16229BB408C002EEAAA /* Menu.swift in Sources */,
@@ -208,7 +201,6 @@
 				C5601A0829F84C0B00F1C66C /* HomeViewModel.swift in Sources */,
 				C5409E2629EEEEC100D9B057 /* DataBaseService.swift in Sources */,
 				C5409E2429EEE87200D9B057 /* User.swift in Sources */,
-				C5EFA7962A015725005AD737 /* Help.swift in Sources */,
 				C5A2F15429BB3D11002EEAAA /* ceh_finalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,5 +11,6 @@ enum OrderStatus: String {
     case new = "Новый"
     case agreed = "Согласован"
     case progress = "В процессе"
-    case comleted = "Выполнен"
+    case comleted_warranty = " Выполнен, гарантия действует"
+    case completed = "Выполнен, гарантийный срок истек"
 }
