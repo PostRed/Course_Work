@@ -15,6 +15,7 @@ struct AboutUsView: View {
         NavigationView {
             ScrollView {
                 LazyVStack (alignment: .leading) {
+                    Color("grey").edgesIgnoringSafeArea(.all)
                     Text(" ЦЕХ - для тех, кто любит\n свой автомобиль")
                         .foregroundColor(Color("yellow"))
                         .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -47,7 +48,28 @@ struct AboutUsView: View {
                     Text("Детейлинг, Москва, Перекопская 34к2\nАвтосервис, Домодедово, Заречная 18")
                         .foregroundColor(Color("yellow"))
                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                } .background(Color("grey"))
+                    HStack {
+                        Text("Свяжитесь с нами: ")
+                            .foregroundColor(Color("yellow"))
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                        Link(destination: URL(string: "https://t.me/+79091670815")!) {
+                            Image(systemName: "paperplane.fill")
+                                .font(.largeTitle)
+                        }
+                        Link(destination: URL(string: "https://wa.me/79091670815")!) {
+                            Image(systemName: "phone.circle")
+                                .font(.largeTitle)
+                        }
+                        Link(destination: URL(string: "https://yandex.ru/maps/org/tsekh_broni_i_keramiki/208551926594/?ll=37.563578%2C55.664121&z=18.16")!) {
+                            Image(systemName: "y.circle.fill")
+                                .font(.largeTitle)
+                        }
+                       
+                    }
+                   
+                }
+                .background(Color("grey"))
+               
             }
         }.background(Color("grey"))
     }
