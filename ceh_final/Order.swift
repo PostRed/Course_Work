@@ -14,6 +14,7 @@ struct Order {
     var type: String
     var description: String
     var date: Date
+    var time: Date
     var connection: String
     var userId: String
     var status: String
@@ -24,6 +25,7 @@ struct Order {
         repres["type"] = self.type
         repres["description"] = self.description
         repres["date"] = self.date
+        repres["time"] = self.time
         repres["connection"] = self.connection
         repres["userId"] = self.userId
         repres["status"] = self.status
@@ -35,6 +37,7 @@ struct Order {
          type: String,
          description: String,
          date: Date,
+         time: Date,
          connection: String,
          userId: String,
          status: String
@@ -43,6 +46,7 @@ struct Order {
         self.type = type
         self.description = description
         self.date = date
+        self.time = time
         self.connection = connection
         self.userId = userId
         self.status = status
@@ -54,6 +58,7 @@ struct Order {
         guard let type = data["type"] as? String else {return nil}
         guard let description = data["description"] as? String else {return nil}
         guard let date = data["date"] as? Timestamp else {return nil}
+        guard let time = data["time"] as? Timestamp else {return nil}
         guard let connection = data["connection"] as? String else {return nil}
         guard let userId = data["userId"] as? String else {return nil}
         guard let status = data["status"] as? String else {return nil}
@@ -62,6 +67,7 @@ struct Order {
         self.type = type
         self.description = description
         self.date = date.dateValue()
+        self.time = time.dateValue()
         self.connection = connection
         self.userId = userId
         self.status = status

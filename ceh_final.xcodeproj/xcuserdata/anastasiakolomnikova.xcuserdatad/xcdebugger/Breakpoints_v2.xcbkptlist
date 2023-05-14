@@ -161,38 +161,6 @@
             endingLineNumber = "46"
             landmarkName = "getOrders(by:comletion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "20B4DD0E-CBB0-4D4A-B477-D014B74C9CC3 - f6539a856148b557"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ceh_final.DatabaseService.getOrders(by: Swift.Optional&lt;Swift.String&gt;, comletion: (Swift.Result&lt;Swift.Array&lt;ceh_final.Order&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "ceh_final"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anastasiakolomnikova/Documents/GitHub/Course_Work/DataBaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "916">
-               </Location>
-               <Location
-                  uuid = "20B4DD0E-CBB0-4D4A-B477-D014B74C9CC3 - f6539a856148b557"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ceh_final.DatabaseService.getOrders(by: Swift.Optional&lt;Swift.String&gt;, comletion: (Swift.Result&lt;Swift.Array&lt;ceh_final.Order&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "ceh_final"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anastasiakolomnikova/Documents/GitHub/Course_Work/DataBaseService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "856">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

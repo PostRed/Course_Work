@@ -15,6 +15,7 @@ struct EntryView: View {
     @State private var selectedType = "Детейлинг  "
     @State private var selectedConnection = "Позвонить"
     @State private var date = Date.now
+    @State private var time = Date.now
     @State private var description = ""
     @State private var showEntryMessage = false
     @State private var messageText = ""
@@ -88,6 +89,26 @@ struct EntryView: View {
                 .background(Color("grey_light"))
                 .padding()
                
+                HStack(spacing: 80) {
+                    Text("Выберите время:")
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding()
+                    DatePicker(selection: $time, displayedComponents: .hourAndMinute) {
+                    }
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .clipped()
+                    .labelsHidden()
+                    .colorInvert()
+                    .colorMultiply(Color("yellow"))
+                    .accentColor(Color("yellow"))
+                    
+                }
+                .frame(width:  UIScreen.main.bounds.size.width, alignment: .topLeading)
+                .border(Color("yellow"),  width: 3)
+                .background(Color("grey_light"))
+                .padding()
                 
                 Text("ОПИШИТЕ ЗАПРОС:")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -131,8 +152,7 @@ struct EntryView: View {
             }
             
             Button {
-                let order = Order(type: selectedType, description: description, date: date, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
-                
+                let order = Order(type: selectedType, description: description, date: date, time: time, connection: selectedConnection, userId: AuthService.shared.current_user!.uid, status: OrderStatus.new.rawValue)
                 DatabaseService.shared.setOrder(order: order) {
                     resultDB in
                     switch resultDB {

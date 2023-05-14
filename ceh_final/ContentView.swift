@@ -21,7 +21,7 @@ struct ContentView: View {
     @State private var patronymic = ""
     @State private var phone = ""
     @State private var new_phone = ""
-    @State public var userIsLoggedIn = false //!!!!!
+    @State public var userIsLoggedIn = true //!!!!!
     @State private var showingLogOutAlert = false
     @State public var is_login = true
     @State private var showingAlert = false
@@ -366,7 +366,7 @@ struct ContentView: View {
                     .padding()
                 VStack {
                     ForEach(viewModel.orders, id: \.id) { order in
-                        Text(" Заказ в \(order.type)\n \(order.description)\n Статус: \(order.status)")
+                        Text(" Заказ в \(order.type)\t\(order.date.formatted(.dateTime.day().month(.twoDigits))) | \(order.time.formatted(.dateTime.hour().minute()))\n \(order.description)\n Статус: \(order.status)")
                             .padding()
                             .font(.system(size: 15, weight: .bold, design: .rounded))
                             .foregroundColor(.white)

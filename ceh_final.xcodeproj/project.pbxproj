@@ -12,7 +12,6 @@
 		C5409E2629EEEEC100D9B057 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5409E2529EEEEC100D9B057 /* DataBaseService.swift */; };
 		C5474DCC29FBD6E70053CFCF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5474DCB29FBD6E70053CFCF /* Order.swift */; };
 		C5474DCE29FD2D030053CFCF /* OrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5474DCD29FD2D030053CFCF /* OrderStatus.swift */; };
-		C5474DD029FD74AA0053CFCF /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5474DCF29FD74AA0053CFCF /* OrderView.swift */; };
 		C54E773029ED983F00AFBBE9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C54E772F29ED983F00AFBBE9 /* FirebaseAuth */; };
 		C54E773229ED983F00AFBBE9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = C54E773129ED983F00AFBBE9 /* FirebaseFirestore */; };
 		C554A3D22A068C3500B589A1 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C554A3D12A068C3500B589A1 /* MapLocation.swift */; };
@@ -34,7 +33,6 @@
 		C5409E2529EEEEC100D9B057 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		C5474DCB29FBD6E70053CFCF /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		C5474DCD29FD2D030053CFCF /* OrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatus.swift; sourceTree = "<group>"; };
-		C5474DCF29FD74AA0053CFCF /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		C554A3D12A068C3500B589A1 /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
 		C5601A0729F84C0B00F1C66C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C5601A0929F857F600F1C66C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 				C5601A0929F857F600F1C66C /* AuthService.swift */,
 				C5474DCB29FBD6E70053CFCF /* Order.swift */,
 				C5474DCD29FD2D030053CFCF /* OrderStatus.swift */,
-				C5474DCF29FD74AA0053CFCF /* OrderView.swift */,
 				C554A3D12A068C3500B589A1 /* MapLocation.swift */,
 			);
 			path = ceh_final;
@@ -189,7 +186,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5A2F16B29BB9FDF002EEAAA /* MapView.swift in Sources */,
-				C5474DD029FD74AA0053CFCF /* OrderView.swift in Sources */,
 				C554A3D22A068C3500B589A1 /* MapLocation.swift in Sources */,
 				C5474DCE29FD2D030053CFCF /* OrderStatus.swift in Sources */,
 				C5A2F16229BB408C002EEAAA /* Menu.swift in Sources */,
