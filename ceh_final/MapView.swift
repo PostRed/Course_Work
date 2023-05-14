@@ -12,9 +12,10 @@ import MapKit
 struct MapView: View {
     
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D( latitude: 55.752004, longitude: 37.617734),
-        span: MKCoordinateSpan (latitudeDelta: 0.3,
-                                longitudeDelta: 0.3))
+        
+        center: CLLocationCoordinate2D( latitude: 55.437341, longitude: 37.768990),
+        span: MKCoordinateSpan (latitudeDelta: 0.5,
+                                longitudeDelta: 0.5))
     
     let mapLocations = [
             MapLocation(name: "Детейлинг, Москва, Перекопская 34к2", latitude:  55.662926, longitude: 37.565654),
