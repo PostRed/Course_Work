@@ -196,6 +196,10 @@ struct ContentView: View {
         else if (int_phone == 0 || phone.count != 10) {
             error_text = "Телефон должен содержать 10 цифр"
             showingAlert = true
+        }  
+        else if !isValidEmail(email) {
+            error_text = "Некорректный адрес электронной почты"
+            showingAlert = true
         }
         else {
             Auth.auth().createUser(withEmail: email,
@@ -231,6 +235,7 @@ struct ContentView: View {
             
         }
     }
+
     
     var settings_page: some View {
         ZStack {
@@ -331,11 +336,27 @@ struct ContentView: View {
         }
         
     }
-        func save_changes(){
+    func save_changes() {
+        if isValidPhoneNumber(phone) && isValidEmail(email) {
             viewModel.setUser()
             show_settings_message = true
             settings_text = "Изменения успешно сохранены"
+        } else {
+            show_settings_message = true
+            settings_text = "Пожалуйста, введите корректный номер телефона и адрес электронной почты"
         }
+    }
+
+    func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+        let phoneRegex = "^[0-9]{10}$" 
+        return NSPredicate(format: "SELF MATCHES %@", phoneRegex).evaluate(with: phoneNumber)
+    }
+
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+    }
+
         
         var home_page: some View {
             ZStack {
