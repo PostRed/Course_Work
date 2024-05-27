@@ -13,6 +13,8 @@ class DatabaseService {
     
     private let db = Firestore.firestore()
     
+    @Published var orders: [Order] = []
+    
     private var usersRef: CollectionReference {
         return db.collection("users")
     }
@@ -90,5 +92,35 @@ class DatabaseService {
             comletion(.success(user))
         }
     }
-}
+    
+    private func setupOrderStatusObserver() {
+        ordersRef.addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching snapshots: \(error!)")
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if let order = Order(doc: diff.document) {
+                    if let index = self.orders.firstIndex(where: { $0.id == order.id }) {
+                        self.orders[index] = order
+                    } else {
+                        self.orders.append(order)
+                    }
+                    self.sendNotification(for: order)
+                }
+            }
+        }
+    }
+    
+    private func sendNotification(for order: Order) {
+        let content = UNMutableNotificationContent()
+        content.title = "Статус заказа изменился"
+        content.body = "Статус вашего заказа \(order.id) изменился на \(order.status)"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "orderStatusChange", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+    }
 
+}
